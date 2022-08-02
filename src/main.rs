@@ -1,6 +1,6 @@
 use std::io::stdin;
-use std::{time};
-use indicatif::{ProgressBar,ProgressStyle};
+use std::{time,fmt::Write};
+use indicatif::{ProgressBar,ProgressStyle,ProgressState};
 //use duration_string::DurationString;
 
 const SYSTEM_PI:f64 = std::f64::consts::PI;
@@ -89,7 +89,7 @@ fn main() {
     
         println!("");
     
-        let iterations:u32 = loop {
+        let iterations:u128 = loop {
     
             println!("Input number of iterations:");
     
@@ -99,7 +99,7 @@ fn main() {
     
             let trimmed = input_iterations.trim();
     
-            match trimmed.parse::<u32>() {
+            match trimmed.parse::<u128>() {
                 Ok(result) => break result,
                 Err(..) => {
                     println!("");
@@ -223,7 +223,11 @@ fn main() {
         // define progressbar, has to use 'as' keyword since it expects u64
         let progressbar = ProgressBar::new(iterations as u64);
     
-        progressbar.set_style(ProgressStyle::with_template("[{elapsed_precise}] {bar:60.cyan/blue} {pos:>7}/{len:7} {msg}").unwrap().progress_chars("##>"));
+        //progressbar.set_style(ProgressStyle::with_template("[{elapsed_precise}] {bar:60.cyan/blue} {pos:>7}/{len:7} {msg}").unwrap().progress_chars("##>"));
+
+        progressbar.set_style(ProgressStyle::with_template("{spinner:.green} [Time Elapsed - {elapsed_precise}] [{wide_bar:.cyan/blue}] ({pos:>7}/{len:7}) (ETA - {eta})").unwrap().with_key("eta", |state: &ProgressState, w: &mut dyn Write| write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap()).progress_chars("#>-"));
+
+        //progressbar.set_style(ProgressStyle::with_template("{spinner:.green} [{elapsed_precise}] [{wide_bar:.cyan/blue}] {bytes}/{total_bytes} ({eta})").unwrap().with_key("eta", |state: &ProgressState, w: &mut dyn Write| write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap()).progress_chars("#>-"));
 
         //let mut edge_length = starting_volume.powf(1.0/3.0);
         let mut height = 1.;
