@@ -1,0 +1,19 @@
+[package]
+default-run = "main"
+name = "math_calculations"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "cylinder"
+path = "src/cylinder.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+indicatif = "0.17.0"
+duration-string = "0.1.1"
