@@ -12,8 +12,14 @@ path = "src/main.rs"
 name = "cylinder"
 path = "src/cylinder.rs"
 
+[[bin]]
+name = "graph"
+path = "src/graph.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 indicatif = "0.17.0"
 duration-string = "0.1.1"
+plotlib = "0.5.1"
+rand = "0.8.5"
