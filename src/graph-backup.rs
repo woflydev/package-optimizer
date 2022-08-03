@@ -19,29 +19,18 @@ fn main() {
     let mut data1 = Vec::new();
     
     let mut height:f64 = 1.;
-    let height_increment = 1.;
+    let height_increment = 0.1;
 
-    let mut low_x:u64 = 0;
-    let mut high_x:u64 = 0;
-    let mut low_y:u64 = 0;
-    let mut high_y:u64 = 0;
-
-    for _i in 0..200 {
+    for _i in 0..3000 {
         let result = calc_cubic_rectangular_prism(height, 1532 as f64, "no");
 
         let mut tmp_vec = vec![(height, result.1)];
         data1.append(&mut tmp_vec);
 
-        // updating graph x bounds
-        if height > 0 as f64 && height > high_x as f64 {
-            high_x = height as u64;
-        }
-
         height += height_increment;
     }
 
-    //draw_graph(data1, 0, 300, 700, 3000);
-    draw_graph(data1, 0, high_x, 700, 3000);
+    draw_graph(data1, 0, 300, 700, 3000);
 
     //let iteration = rng.gen_range(20..30);
 

@@ -16,6 +16,10 @@ path = "src/cylinder.rs"
 name = "graph"
 path = "src/graph.rs"
 
+[[bin]]
+name = "graph-backup"
+path = "src/graph-backup.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
