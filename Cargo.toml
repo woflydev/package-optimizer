@@ -6,7 +6,7 @@ edition = "2021"
 
 [[bin]]
 name = "main"
-path = "src/main_cmdline.rs"
+path = "src/main.rs"
 
 [[bin]]
 name = "cylinder"
@@ -14,7 +14,7 @@ path = "src/cylinder.rs"
 
 [[bin]]
 name = "graph"
-path = "src/main_graph.rs"
+path = "src/graph.rs"
 
 [[bin]]
 name = "graph-backup"

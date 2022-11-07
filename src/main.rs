@@ -356,6 +356,8 @@ fn main() {
 
     println!("Low-X: {}, High-X: {}", low_x, high_x);
 
+    println!("Generating graph... this may take a while!");
+
     println!("");
     println!("Calculation complete!");
     println!("Time elapsed: {} seconds.", seconds_time_elapsed);
@@ -387,7 +389,7 @@ fn main() {
 
 fn draw_graph(vector:&Vec<(f64,f64)>, low_x_range:i64, high_x_range:i64, low_y_range:i64, high_y_range:i64) {
     let cloned_vec = vector.clone();
-    //println!("{:?}", cloned_vec);
+    println!("{:?}", cloned_vec);
     // We create our scatter plot from the data
     let s1: Plot = Plot::new(cloned_vec).point_style(
         PointStyle::new()
