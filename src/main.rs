@@ -459,5 +459,5 @@ fn calc_percentage_diff(start_sa:f64, calced_sa:f64, round:&str) -> f64 {
         return percentage.round();
     }
 
-    return difference / start_sa * 100.;
+    return difference / start_sa * 100 as f64;
 }

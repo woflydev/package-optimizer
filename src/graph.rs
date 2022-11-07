@@ -42,16 +42,6 @@ fn main() {
 
     //draw_graph(data1, 0, 300, 700, 3000);
     draw_graph(data1, 0, high_x, 700, 3000);
-
-    //let iteration = rng.gen_range(20..30);
-
-    /*for _x in 0..iteration {
-        let random_x:f64 = rng.gen_range(0 as f64..100 as f64);
-        let random_y:f64 = rng.gen_range(0 as f64..100 as f64);
-        
-        let mut tmp_vec = vec![(random_x, random_y)];
-        data1.append(&mut tmp_vec);
-    }*/
 }
 
 fn draw_graph(vector:Vec<(f64,f64)>, low_x:u64, high_x:u64, low_y:u64, high_y:u64) {
@@ -66,19 +56,9 @@ fn draw_graph(vector:Vec<(f64,f64)>, low_x:u64, high_x:u64, low_y:u64, high_y:u6
             .colour("#DD3355"),
     ); // and a custom colour
 
-    // We can plot multiple data sets in the same view
-    /*let data2 = vec![(-1.4, 2.5), (7.2, -0.3)];
-    let s2: Plot = Plot::new(data2).point_style(
-        PointStyle::new() // uses the default marker
-            .colour("#35C788"),
-    ); // and a different colour*/
-
     // The 'view' describes what set of data is drawn
     let v = ContinuousView::new()
         .add(s1)
-        //.add(s2)
-        //.x_range(-5., 10.)
-        //.y_range(-2., 6.)
         .x_range(low_x as f64, high_x as f64)
         .y_range(low_y as f64, high_y as f64)
         .x_label("Height")
@@ -89,8 +69,6 @@ fn draw_graph(vector:Vec<(f64,f64)>, low_x:u64, high_x:u64, low_y:u64, high_y:u6
 }
 
 fn calc_cubic_rectangular_prism(height:f64, volume:f64, round:&str) -> (f64, f64) {
-    //return 6 as f64 * edge.powi(2);
-    
     let base_area:f64 = volume / height;
     let base_edge_length = base_area.sqrt();
 

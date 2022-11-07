@@ -10,3 +10,5 @@ Or, if you would simply like to build the executable:
 ``cargo build --release``.
 
 Have fun :)
+
+main.rs is not operational at this point in time, but graph.rs works fine.
